@@ -1,14 +1,25 @@
-import React from 'react'
-import { useState } from 'react'
-import { useEffect } from 'react'
+import React from 'react';
+import { useState } from 'react';
+
 export const App = () => {
-    const [count, setcount] = useState(1)
-    useEffect(()=>console.log("you are clicked"),[count])
-  return (
-    <div>
-        {count}
-        <button onClick={()=> setcount(count+1)}> change </button>
-    </div>
-  )
+    const [username, setUsername] = useState("");
+    const changeHandler = e => {
+        setUsername(e.target.value);
+    };
+    return (
+        <div>
+            <center>
+                <input
+                    type="text"
+                    placeholder="username"
+                    name="username"
+                    value={username}
+                    onChange={changeHandler}
+                />
+                <h3>{username}</h3>
+            </center>
+        </div>
+    );
 }
-export default App
+
+export default App;
